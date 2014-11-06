@@ -45,6 +45,41 @@ Route::get('mysql-test', function() {
 
 });
 
+Route::get('/', function()
+{
+	return View::make('hello');
+});
+
+Route::get('/user', function()
+{
+	return View::make('create_user_form');
+});
+
+Route::post('/user', function()
+{
+	$user = new User;
+	$user->username 		= Input::get('username');
+	$user->password 		= Hash::make(Input::get('password'));
+	$user->email 			= Input::get('email');
+	$user->save();
+
+	return Response::make('User created!');
+});
+
+Route::get('/crush', array(
+	'before'=> 'auth.basic',
+	function()
+{
+	return View::make('crush');
+}
+));
+
+Route::get('/logout', function()
+{
+    Auth::logout();
+    return Response::make('You are now logged out...');
+});
+
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -87,5 +122,5 @@ Route::get('/debug', function() {
     }
 
     echo '</pre>';
-    
+
 });
