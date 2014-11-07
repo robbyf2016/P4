@@ -77,8 +77,7 @@ Route::get('/crush', array(
 Route::get('/logout', function()
 {
     Auth::logout();
-    Session::flush();
-    return Response::make('You are now logged out...');
+    return Redirect::to('/');
 });
 
 Route::get('/debug', function() {
