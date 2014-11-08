@@ -47,7 +47,7 @@ Route::get('mysql-test', function() {
 
 Route::get('/', function()
 {
-	return View::make('hello');
+	return View::make('CSC_index_page');
 });
 
 Route::get('/user', function()
