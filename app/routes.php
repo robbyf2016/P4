@@ -52,7 +52,7 @@ Route::get('/', function()
 
 Route::get('/user', function()
 {
-	return View::make('create_user_form');
+	return View::make('CSC_create_user_form');
 });
 
 Route::post('/user', function()
