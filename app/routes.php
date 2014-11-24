@@ -11,10 +11,12 @@
 |
 */
 
-Route::get('/', function()
+use Paste\Pre;
+
+/*Route::get('/', function()
 {
 	return View::make('hello');
-});
+});*/
 
 
 Route::get('/get-environment',function() {
@@ -45,6 +47,20 @@ Route::get('mysql-test', function() {
 
 });
 
+/********************************************************
+    Application Final Project Routes
+********************************************************/
+
+Route::get('/truncate', function() {
+
+    # Clear the tables to a blank slate
+    DB::statement('SET FOREIGN_KEY_CHECKS=0'); # Disable FK constraints so that all rows can be deleted, even if there's an associated FK
+    DB::statement('TRUNCATE books');
+    DB::statement('TRUNCATE authors');
+    DB::statement('TRUNCATE tags');
+    DB::statement('TRUNCATE book_tag');
+});
+
 Route::get('/', function()
 {
 	return View::make('CSC_index_page');
@@ -55,30 +71,70 @@ Route::get('/user', function()
 	return View::make('CSC_create_user_form');
 });
 
-Route::post('/user', function()
-{
-	$user = new User;
-	$user->username 		= Input::get('username');
-	$user->password 		= Hash::make(Input::get('password'));
-	$user->email 			= Input::get('email');
-	$user->save();
+Route::post('/user',
+    array(
+        'before' => 'csrf',
+        function() {
 
-	return Response::make('User created!');
-});
+    $rules = array(
+        'username' => 'alpha_num|min:5|unique:users,username|required',
+        'password' => 'required|min:7',
+        'email' => 'email|required'
+        );
 
-Route::get('/crush', array(
+    	$validator = Validator::make(Input::all(), $rules);
+            if ($validator->fails()){
+
+                return Redirect::to('/user')->with('flash_message', 'Sign up failed; see errors and please try again.')
+                    ->withInput()
+                    ->withErrors($validator);
+
+            }
+
+    $user = new Toddish\Verify\Models\User;
+    $user->username         = Input::get('username');
+    $user->password         = Input::get('password');
+    $user->email            = Input::get('email');
+    $user->verified         = 1;
+
+    try{
+        $user->save();
+    }
+
+    catch(Exception $e){
+        return Redirect::to('/user')->with('flash_message', 'Sign up failed; please try again.')
+        ->withInput();
+    }
+
+    $user->roles()->sync(array(1));
+
+    Auth::attempt(array('identifier'=>$user->username, 'password'=>Input::get('password')));
+
+	return Redirect::to('/enter')->with('flash_message', 'Successfully created ID - Welcome to CSC'); 
+}));
+
+Route::get('/enter', array(
 	'before'=> 'auth.basic',
 	function()
 {
-	return View::make('crush');
+	return View::make('CSC_landing');
 }
 ));
 
-Route::get('/logout', function()
+Route::get('/logout', 
+    array(
+        'after' => 'invalidate-browser-cache',
+        function()
 {
     Auth::logout();
+    Session::flush();
+
     return Redirect::to('/');
-});
+}));
+
+/*---------------------------------------------------------
+    Debug
+----------------------------------------------------------*/
 
 Route::get('/debug', function() {
 
