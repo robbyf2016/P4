@@ -37,6 +37,11 @@
             <li class="active"><a href="#">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
+            <!-- ************************************************************************************************
+            Check to see if username is set to verify if user is authenticated.  This is used for DRY principle.
+            Only show dropdown functions and signout on authenticated user pages. 
+                 ********************************************************************************************* -->
+            @if(isset(Auth::user()->username))
             <li class="dropdown">
               <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Invoice Functions <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
@@ -50,6 +55,7 @@
               </ul>
             </li>
             <li><a href="/logout">Sign Out</a></li>
+            @endif
           </ul>
         </div><!--/.nav-collapse -->
       </div>

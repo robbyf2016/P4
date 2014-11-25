@@ -68,7 +68,8 @@ Route::get('/', function()
 
 Route::get('/user', function()
 {
-	return View::make('CSC_create_user_form');
+    $create_account = 'Y';
+	return View::make('CSC_create_user_form')->with($create_account);
 });
 
 Route::post('/user',
@@ -117,9 +118,26 @@ Route::get('/enter', array(
 	'before'=> 'auth.basic',
 	function()
 {
-	return View::make('CSC_landing');
+    $create_account = 'N';
+	return View::make('CSC_landing')->with($create_account);
 }
 ));
+
+Route::get('/create-service',function(){
+
+    $service = new Service();
+
+    $service->service_name = 'Vulnerability Assessment';
+    $service->service_desc = 'Vulnerability assessment involves scanning the devices within 
+    a system to determine possible vulnerabilities with the additional assessment of false 
+    positives';
+    $service->service_price = '800';
+
+    $service->save();
+
+    return 'A new service was added!';
+
+});
 
 Route::get('/logout', 
     array(
