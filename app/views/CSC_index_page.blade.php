@@ -7,6 +7,7 @@
 <title>Cyber Security Consultants, LLC.</title>
 <link href="css/bootstrap.min.css" rel="stylesheet" type="text/css" />
 <link href="css/cover.css" rel="stylesheet">
+<link href="css/CSC.css" rel="stylesheet"
 <link rel="icon" href="images/favicon.ico">
 </head>
 
@@ -14,6 +15,10 @@
 
 	<!-- Boostrap code here that references Bootstrap CSS with personalized content 
 		 This is the main landing page of the site -->
+
+@if(Session::get('flash_message'))
+	<div class="flash-message">{{ Session::get('flash_message') }}</div>
+@endif
 
 <div class="site-wrapper">
 

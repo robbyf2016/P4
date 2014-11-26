@@ -7,6 +7,7 @@
     <meta name="description" content="">
     <meta name="author" content="">
     <link rel="icon" href="images/favicon.ico">
+    <link href="css/CSC.css" rel="stylesheet">
 
     <title>CyberSecurity Consultants LLC.</title>
 
@@ -30,11 +31,11 @@
             <span class="icon-bar"></span>
             <span class="icon-bar"></span>
           </button>
-          <a class="navbar-brand" href="#">CyberSecurity Consultants, LLC.</a>
+          <a class="navbar-brand" href="/">CyberSecurity Consultants, LLC.</a>
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="#">Home</a></li>
+            <li class="active"><a href="/enter">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <!-- ************************************************************************************************
@@ -43,15 +44,29 @@
                  ********************************************************************************************* -->
             @if(isset(Auth::user()->username))
             <li class="dropdown">
-              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Invoice Functions <span class="caret"></span></a>
+              <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">Site Functions <span class="caret"></span></a>
               <ul class="dropdown-menu" role="menu">
+                @if(Auth::user()->is('CSC_client'))
+                <li class="dropdown-header">CSC Client Functions</li>
                 <li><a href="#">View Invoices</a></li>
-                <li><a href="#">Future Function</a></li>
-                <li><a href="#">Future Function</a></li>
-                <li class="divider"></li>
-                <li class="dropdown-header">Administrative</li>
-                <li><a href="#">Admin Function</a></li>
-                <li><a href="#">Admin Function</a></li>
+                @elseif(Auth::user()->is('CSC_Employee'))
+                <li class="dropdown-header">CSC Employee Functions</li>
+                <li><a href="/create-order">Create Order</a></li>
+                <li><a href="/create-client">Create Client</a></li>
+                <li><a href="#">View Invoice</a></li>
+                <li><a href="#">Update Invoice</a></li>
+                <li><a href="#">Delete Invoice</a></li>
+                @else
+                <li class="dropdown-header">CSC Admin Functions</li>
+                <li><a href="#">Create Service</a></li>
+                <li><a href="#">Update Service</a></li>
+                <li><a href="#">Delete Service</a></li>
+                <li><a href="/create-client">Create Client</a></li>
+                <li><a href="/create-order">Create Order</a></li>
+                <li><a href="#">View Invoice</a></li>
+                <li><a href="#">Update Invoice</a></li>
+                <li><a href="#">Delete Invoice</a></li>
+                @endif
               </ul>
             </li>
             <li><a href="/logout">Sign Out</a></li>

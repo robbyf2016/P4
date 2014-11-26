@@ -58,7 +58,15 @@ Route::filter('auth', function()
 
 Route::filter('auth.basic', function()
 {
-	return Auth::basic('username');
+	try{
+       
+       return Auth::basic('username');
+    }
+
+    catch(Exception $e){
+        return Redirect::to('/')->with('flash_message', 'Login failed; please try again.');
+    }
+	
 });
 
 /*

@@ -68,8 +68,7 @@ Route::get('/', function()
 
 Route::get('/user', function()
 {
-    $create_account = 'Y';
-	return View::make('CSC_create_user_form')->with($create_account);
+	return View::make('CSC_create_user_form');
 });
 
 Route::post('/user',
@@ -118,12 +117,34 @@ Route::get('/enter', array(
 	'before'=> 'auth.basic',
 	function()
 {
-    $create_account = 'N';
-	return View::make('CSC_landing')->with($create_account);
+	
+    return View::make('CSC_landing');
 }
 ));
 
-Route::get('/create-service',function(){
+Route::get('/create-order', array(
+    'before'=> 'auth.basic',
+    function()
+
+    {
+        return View::make('CSC_create_order');
+    }
+
+));
+
+Route::get('/create-client', array(
+    'before'=> 'auth.basic',
+    function()
+
+    {
+        return View::make('CSC_create_client');
+    }
+
+));
+
+Route::get('/create-service',array(
+    'before'=> 'auth.basic',
+    function(){
 
     $service = new Service();
 
@@ -137,7 +158,7 @@ Route::get('/create-service',function(){
 
     return 'A new service was added!';
 
-});
+}));
 
 Route::get('/logout', 
     array(
