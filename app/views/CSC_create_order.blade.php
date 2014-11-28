@@ -24,12 +24,14 @@ This page is used to create an order for a CSC client.
 @foreach($errors->all() as $message) 
     <div class="error">{{ $message }}</div>
 @endforeach
+
 <form action="{{ url('create-order') }}" method="post">
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	<p><label for="username">Client:</label></p>
-	<p><input type="text" name="username" placeholder="Username" /></p>
-	<p><label for="email">Service:</label></p>
-	<p><input type="text" name="email" placeholder="Email" /></p>
-	<p><input type="submit" value="Create" /></p>
+	<label for="client">Client:</label>
+	{{ Form::select('Client', $client_options , Input::old('Client')) }}
+	<label for="service">Service:</label>
+	{{ Form::select('Service', $service_options , Input::old('Service')) }}
+	</br></br>
+	<p><input type="submit" value="Submit" /></p>
 </form>
 @stop

@@ -122,12 +122,36 @@ Route::get('/enter', array(
 }
 ));
 
+Route::get('/read-order',array(
+    'before'=> 'auth.basic',
+    function()
+    {
+
+    }
+
+));
+
 Route::get('/create-order', array(
     'before'=> 'auth.basic',
     function()
 
     {
-        return View::make('CSC_create_order');
+        $service_options = Service::lists('service_name', 'id');
+        $client_options = Client::lists('client_name', 'id');
+
+        return View::make('CSC_create_order')
+        ->with('service_options',$service_options)
+        ->with('client_options',$client_options);
+    }
+
+));
+
+Route::post('/create-order', array(
+    'before'=> 'auth.basic',
+    function()
+
+    {
+       return 'Made it to post create-order';
     }
 
 ));
@@ -146,7 +170,7 @@ Route::get('/create-service',array(
     'before'=> 'auth.basic',
     function(){
 
-    $service = new Service();
+    /*$service = new Service();
 
     $service->service_name = 'Vulnerability Assessment';
     $service->service_desc = 'Vulnerability assessment involves scanning the devices within 
@@ -156,7 +180,7 @@ Route::get('/create-service',array(
 
     $service->save();
 
-    return 'A new service was added!';
+    return 'A new service was added!';*/
 
 }));
 
