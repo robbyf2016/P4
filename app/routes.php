@@ -51,16 +51,6 @@ Route::get('mysql-test', function() {
     Application Final Project Routes
 ********************************************************/
 
-Route::get('/truncate', function() {
-
-    # Clear the tables to a blank slate
-    DB::statement('SET FOREIGN_KEY_CHECKS=0'); # Disable FK constraints so that all rows can be deleted, even if there's an associated FK
-    DB::statement('TRUNCATE books');
-    DB::statement('TRUNCATE authors');
-    DB::statement('TRUNCATE tags');
-    DB::statement('TRUNCATE book_tag');
-});
-
 Route::get('/', function()
 {
 	return View::make('CSC_index_page');
@@ -136,12 +126,24 @@ Route::get('/create-order', array(
     function()
 
     {
-        $service_options = Service::lists('service_name', 'id');
-        $client_options = Client::lists('client_name', 'id');
+        /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admin and employees can perform create orders based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin', 'CSC_Employee')))
+        {
+            $service_options = Service::lists('service_name', 'id');
+            $client_options = Client::lists('client_name', 'id');
 
-        return View::make('CSC_create_order')
-        ->with('service_options',$service_options)
-        ->with('client_options',$client_options);
+            return View::make('CSC_create_order')
+            ->with('service_options',$service_options)
+            ->with('client_options',$client_options);
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
     }
 
 ));
@@ -151,7 +153,43 @@ Route::post('/create-order', array(
     function()
 
     {
-       return 'Made it to post create-order';
+       /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admin and employees can perform create orders based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin', 'CSC_Employee')))
+        {        
+
+            /**********************************************************************
+            Adds new order to orders table.
+            ***********************************************************************/
+
+            $order = new Order;
+            $dt = new DateTime();
+            //$a = Input::get('Client');
+            //$b = Input::get('Service');
+            //return (array($a,$b));
+
+            $client = Client::find(Input::get('Client'));
+            $service = Service::find(Input::get('Service'));
+
+            /*Associate client input selection to clients table*/
+            $order->client()->associate($client);
+            $order->order_created_date  = $dt;  /* Could just use timestamp in table.  For future release consideration.*/
+            $order->save();
+
+            /*Attach service to update service_order_assignment table*/
+            $order->services()->attach($service);
+
+
+
+            return Redirect::to('/create-order')->with('flash_message', 'Order created and added to the orders table');
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
     }
 
 ));
@@ -161,7 +199,78 @@ Route::get('/create-client', array(
     function()
 
     {
-        return View::make('CSC_create_client');
+        /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admin and employees can perform create orders based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin', 'CSC_Employee')))
+        {
+            return View::make('CSC_create_client');
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
+    }
+
+));
+
+Route::post('/create-client', array(
+    'before'=> 'auth.basic',
+    function()
+
+    {
+       /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admin and employees can perform create orders based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin', 'CSC_Employee')))
+        {
+            /*************************************************************************
+            Rules array to set specific parameters for data input validation.
+            **************************************************************************/
+            $rules = array(
+                'client' => 'unique:clients,client_name|required',
+                'address' => 'required',
+                'city' => 'required|alpha',
+                'state' => 'required|alpha|min:2|max:2',
+                'zip' => 'required|digits:5'  /* Future development use regex for zip + 4 */
+            );
+
+            /***********************************************************************
+            Validates data input based on rules and either enters data into table or
+            sends user back to main page with specific error conditions.
+            ************************************************************************/
+
+        $validator = Validator::make(Input::all(), $rules);
+            if ($validator->fails()){
+
+                return Redirect::to('/create-client')->with('flash_message', 'Invalid input entered.  Please try again.')
+                    ->withInput()
+                    ->withErrors($validator);
+
+            }
+
+            /**********************************************************************
+            Adds new client to clients table.
+            ***********************************************************************/
+
+            $client = new Client;
+            $client->client_id      = Input::get('client');
+            $client->address        = Input::get('address');
+            $client->city           = Input::get('city');
+            $client->state          = Input::get('state');
+            $client->zip_code       = Input::get('zip');
+            $client->save();
+
+            return Redirect::to('/create-client')->with('flash_message', 'Client created and added to clients table');
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
     }
 
 ));

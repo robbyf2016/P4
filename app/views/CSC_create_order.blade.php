@@ -3,9 +3,6 @@
 CSC, LLC.  Create Order
 @stop
 @section ('header')
-@if(Session::get('flash_message'))
-	<div class="flash-message">{{ Session::get('flash_message') }}</div>
-@endif
 @stop
 @section ('navigation')
 <!--************************************************
@@ -15,6 +12,9 @@ CSC, LLC.  Create Order
 <a href="/">Home</a>
 @stop
 @section ('page_title')
+@if(Session::get('flash_message'))
+	<div class="flash-message">{{ Session::get('flash_message') }}</div>
+@endif
 Create Order
 @stop
 @section ('description')
@@ -31,7 +31,7 @@ This page is used to create an order for a CSC client.
 	{{ Form::select('Client', $client_options , Input::old('Client')) }}
 	<label for="service">Service:</label>
 	{{ Form::select('Service', $service_options , Input::old('Service')) }}
-	</br></br>
+	</br></br></br></br>
 	<p><input type="submit" value="Submit" /></p>
 </form>
 @stop

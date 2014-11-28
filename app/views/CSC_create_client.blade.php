@@ -3,9 +3,6 @@
 CSC, LLC.  Create Client
 @stop
 @section ('header')
-@if(Session::get('flash_message'))
-	<div class="flash-message">{{ Session::get('flash_message') }}</div>
-@endif
 @stop
 @section ('navigation')
 <!--************************************************
@@ -15,10 +12,13 @@ CSC, LLC.  Create Client
 <a href="/">Home</a>
 @stop
 @section ('page_title')
+@if(Session::get('flash_message'))
+	<div class="flash-message">{{ Session::get('flash_message') }}</div>
+@endif
 Create Client
 @stop
 @section ('description')
-This page is used to create an order for a CSC client.
+This page is used to create a client for CSC.
 @stop
 @section ('content')
 @foreach($errors->all() as $message) 
@@ -26,10 +26,16 @@ This page is used to create an order for a CSC client.
 @endforeach
 <form action="{{ url('create-client') }}" method="post">
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	<p><label for="username">Client:</label></p>
-	<p><input type="text" name="username" placeholder="Username" /></p>
-	<p><label for="email">Service:</label></p>
-	<p><input type="text" name="email" placeholder="Email" /></p>
+	<p><label for="client">Client:</label></p>
+	<p><input type="text" name="client" placeholder="Client" /></p>
+	<p><label for="address">Address:</label></p>
+	<p><input type="text" name="address" placeholder="Address" /></p>
+	<p><label for="City">City:</label></p>
+	<p><input type="text" name="city" placeholder="City" /></p>
+	<p><label for="state">State:</label></p>
+	<p><input type="text" name="state" placeholder="State" /></p>
+	<p><label for="zip">Zip:</label></p>
+	<p><input type="text" name="zip" placeholder="Zip" /></p>
 	<p><input type="submit" value="Create" /></p>
 </form>
 @stop
