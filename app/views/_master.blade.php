@@ -48,24 +48,20 @@
               <ul class="dropdown-menu" role="menu">
                 @if(Auth::user()->is('CSC_client'))
                 <li class="dropdown-header">CSC Client Functions</li>
-                <li><a href="#">View Invoices</a></li>
+                <li><a href="/read-order">Read Orders</a></li>
                 @elseif(Auth::user()->is('CSC_Employee'))
                 <li class="dropdown-header">CSC Employee Functions</li>
-                <li><a href="/create-order">Create Order</a></li>
-                <li><a href="/create-client">Create Client</a></li>
-                <li><a href="#">View Invoice</a></li>
-                <li><a href="#">Update Invoice</a></li>
-                <li><a href="#">Delete Invoice</a></li>
+                <li><a href="/create-order">Create Orders</a></li>
+                <li><a href="/create-client">Create Clients</a></li>
+                <li><a href="/read-order">Read Orders</a></li>
                 @else
                 <li class="dropdown-header">CSC Admin Functions</li>
-                <li><a href="#">Create Service</a></li>
-                <li><a href="#">Update Service</a></li>
-                <li><a href="#">Delete Service</a></li>
-                <li><a href="/create-client">Create Client</a></li>
-                <li><a href="/create-order">Create Order</a></li>
-                <li><a href="#">View Invoice</a></li>
-                <li><a href="#">Update Invoice</a></li>
-                <li><a href="#">Delete Invoice</a></li>
+                <li><a href="#">Create Services</a></li>
+                <li><a href="#">Update Services</a></li>
+                <li><a href="#">Delete Services</a></li>
+                <li><a href="/create-client">Create Clients</a></li>
+                <li><a href="/create-order">Create Orders</a></li>
+                <li><a href="/read-order">Read Orders</a></li>
                 @endif
               </ul>
             </li>
