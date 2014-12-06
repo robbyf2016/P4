@@ -39,8 +39,8 @@
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <!-- ************************************************************************************************
-            Check to see if username is set to verify if user is authenticated.  This is used for DRY principle.
-            Only show dropdown functions and signout on authenticated user pages. 
+                 Check to see if username is set to verify if user is authenticated.  This is used for DRY principle.
+                 Only show dropdown functions and signout on authenticated user pages. 
                  ********************************************************************************************* -->
             @if(isset(Auth::user()->username))
             <li class="dropdown">

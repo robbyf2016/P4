@@ -10,10 +10,10 @@ CSC, LLC.  Landing Page
 <a href="/">Home</a>
 @stop
 @section ('page_title')
-CSC Landing Page
+CSC Site Information Page
 @stop
 @section ('description')
-This page is used to CRUD users/order/services for CSC, LLC.
+This will contain information on how to navigate through this application.  Also the RTM.
 @stop
 @section ('content')
 @if(Session::get('flash_message'))

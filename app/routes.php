@@ -66,11 +66,19 @@ Route::post('/user',
         'before' => 'csrf',
         function() {
 
+/********************************************************
+Create validation rules for authentication input
+*********************************************************/
+
     $rules = array(
-        'username' => 'alpha_num|min:5|unique:users,username|required',
+        'username' => 'alpha_num|min:5|unique:users,username|required', /*Username not used check*/
         'password' => 'required|min:7',
         'email' => 'email|required'
         );
+
+/*******************************************************
+Create validator based on above created rules
+********************************************************/
 
     	$validator = Validator::make(Input::all(), $rules);
             if ($validator->fails()){
@@ -80,6 +88,10 @@ Route::post('/user',
                     ->withErrors($validator);
 
             }
+
+/******************************************************
+Create user based on validated input
+*******************************************************/
 
     $user = new Toddish\Verify\Models\User;
     $user->username         = Input::get('username');
@@ -98,7 +110,7 @@ Route::post('/user',
 
     $user->roles()->sync(array(1));
 
-    Auth::attempt(array('identifier'=>$user->username, 'password'=>Input::get('password')));
+    Auth::attempt(array('identifier'=>$user->username, 'password'=>Input::get('password'), $remember = false));
 
 	return Redirect::to('/enter')->with('flash_message', 'Successfully created ID - Welcome to CSC'); 
 }));
@@ -314,7 +326,7 @@ Route::post('/create-client', array(
             ***********************************************************************/
 
             $client = new Client;
-            $client->client_id      = Input::get('client');
+            $client->client_name    = Input::get('client');
             $client->address        = Input::get('address');
             $client->city           = Input::get('city');
             $client->state          = Input::get('state');
