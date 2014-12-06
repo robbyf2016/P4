@@ -2,10 +2,8 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
-use Toddish\Verify\Models\Role;
-use Toddish\Verify\Models\Permission;
 
-class AddDefaultUsers extends Migration {
+class AddDefaultSeeding extends Migration {
 
 	/**
 	 * Run the migrations.
@@ -94,7 +92,6 @@ class AddDefaultUsers extends Migration {
 		$user->save();
 
 		$user->roles()->sync(array(2));
-
 	}
 
 	/**
