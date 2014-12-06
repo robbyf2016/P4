@@ -30,6 +30,15 @@ class AddDefaultUsers extends Migration {
 
 		$user->roles()->sync(array(3));
 
+		$user = new Toddish\Verify\Models\User;
+		$user->username = 'admin';
+		$user->email = 'admin@xyz.com';
+		$user->password = 'admin123'; // This is automatically salted and encrypted
+		$user->verified =1;
+		$user->save();
+
+		$user->roles()->sync(array(2));
+
 	}
 
 	/**
