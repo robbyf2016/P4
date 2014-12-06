@@ -17,6 +17,14 @@ class UpdatePermissionRoleTable extends Migration {
 		$role = Role::find(2);
 
 		$role->permissions()->sync(array(1));
+
+		$role = Role::find(1);
+
+		$role->permissions()->sync(array(2));
+
+		$role = Role::find(3);
+
+		$role->permissions()->sync(array(3));
 	}
 
 	/**
