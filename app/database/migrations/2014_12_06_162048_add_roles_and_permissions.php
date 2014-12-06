@@ -33,19 +33,19 @@ class AddRolesAndPermissions extends Migration {
 		// Create a new Role
 		$role = new Toddish\Verify\Models\Role;
 		$role->name = 'CSC_client';
-		$role->description = 'CSC client role with read only permission'
+		$role->description = 'CSC client role with read only permission';
 		$role->level = 1;
 		$role->save();
 
 		$role = new Toddish\Verify\Models\Role;
 		$role->name = 'CSC_Admin';
-		$role->description = 'CSC Admin role with full permission'
+		$role->description = 'CSC Admin role with full permission';
 		$role->level = 5;
 		$role->save();
 
 		$role = new Toddish\Verify\Models\Role;
 		$role->name = 'CSC_Employee';
-		$role->description = 'CSC employee role with RTM permissions'
+		$role->description = 'CSC employee role with RTM permissions';
 		$role->level = 3;
 		$role->save();
 
