@@ -2,6 +2,10 @@
 
 use Illuminate\Database\Schema\Blueprint;
 use Illuminate\Database\Migrations\Migration;
+use Toddish\Verify\Models\User;
+use Toddish\Verify\Models\Permission;
+use Toddish\Verify\Models\Role;
+
 
 class AddDefaultSeeding extends Migration {
 
