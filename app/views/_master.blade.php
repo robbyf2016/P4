@@ -57,8 +57,7 @@
                 @else
                 <li class="dropdown-header">CSC Admin Functions</li>
                 <li><a href="#">Create Services</a></li>
-                <li><a href="#">Update Services</a></li>
-                <li><a href="#">Delete Services</a></li>
+                <li><a href="/update-service">Modify (update/delete) Services</a></li>
                 <li><a href="/create-client">Create Clients</a></li>
                 <li><a href="/create-order">Create Orders</a></li>
                 <li><a href="/read-order">Read Orders</a></li>
