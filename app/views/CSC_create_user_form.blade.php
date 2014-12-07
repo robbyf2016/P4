@@ -15,7 +15,7 @@ CSC, LLC.  Create User
 <a href="/">Home</a>
 @stop
 @section ('page_title')
-Create User
+<h2>Create User</h2>
 @stop
 @section ('description')
 This page is used to create users for access to the CSC, LLC. Website.

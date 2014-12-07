@@ -10,7 +10,7 @@ CSC, LLC.  Landing Page
 <a href="/">Home</a>
 @stop
 @section ('page_title')
-CSC Site Information Page
+<h2>CSC Site Information Page</h2>
 @stop
 @section ('description')
 This will contain information on how to navigate through this application.  Also the RTM.

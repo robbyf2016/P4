@@ -15,7 +15,7 @@ CSC, LLC.  Read Order
 @if(Session::get('flash_message'))
 	<div class="flash-message">{{ Session::get('flash_message') }}</div>
 @endif
-Read Order
+<h2>Read Order</h2>
 @stop
 @section ('description')
 This page is used to read orders of a specific CSC client.
@@ -27,25 +27,23 @@ This page is used to read orders of a specific CSC client.
 
 <form action="{{ url('read-order') }}" method="post">
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
-	<label for="client">Client:</label>
+	<label>Client:</label>
 	{{ Form::select('Client', $client_options , Input::old('Client')) }}
 	<input class="select_button" type="submit" value="Submit" />
 </form>
 @if(isset($selection))
-</br></br>
+<br /><br />
 <p class="results">Results:</p>
 	@foreach($client_info as $client)
-	<p>	
 		<div class="client">
 			<span class="client_name">
-				{{ $client->client_name }} </br>
+				{{ $client->client_name }} <br />
 			</span>
-				{{ $client->address }}</br>
+				{{ $client->address }}<br />
 				{{ $client->city }} , 
 				{{ $client->state }}  
-				{{ $client->zip_code }}</br>
+				{{ $client->zip_code }}<br />
 		</div>
-	</p>
 	@endforeach
 	<table class="outtable">
 		<tr>

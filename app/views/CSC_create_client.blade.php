@@ -15,7 +15,7 @@ CSC, LLC.  Create Client
 @if(Session::get('flash_message'))
 	<div class="flash-message">{{ Session::get('flash_message') }}</div>
 @endif
-Create Client
+<h2>Create Client</h2>
 @stop
 @section ('description')
 This page is used to create a client for CSC.

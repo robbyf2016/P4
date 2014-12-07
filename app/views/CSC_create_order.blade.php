@@ -15,7 +15,7 @@ CSC, LLC.  Create Order
 @if(Session::get('flash_message'))
 	<div class="flash-message">{{ Session::get('flash_message') }}</div>
 @endif
-Create Order
+<h2>Create Order</h2>
 @stop
 @section ('description')
 This page is used to create an order for a CSC client.

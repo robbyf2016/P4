@@ -76,7 +76,7 @@
       <div class="page-header">
         <?php include("CSC_header.php"); ?>
       </div>
-      <h2>@yield('page_title')</h2>
+        @yield('page_title')
         @yield('description')
         @yield('content')
     </div>

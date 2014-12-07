@@ -15,7 +15,7 @@ CSC, LLC.  Update Order
 @if(Session::get('flash_message'))
 	<div class="flash-message">{{ Session::get('flash_message') }}</div>
 @endif
-Update Order
+<h2>Update Order</h2>
 @stop
 @section ('description')
 This page is used to update orders of a specific CSC client.
