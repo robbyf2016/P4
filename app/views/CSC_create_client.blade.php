@@ -27,15 +27,15 @@ This page is used to create a client for CSC.
 <form action="{{ url('create-client') }}" method="post">
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 	<p><label for="client">Client:</label></p>
-	<p><input type="text" name="client" placeholder="Client" /></p>
+	<p><input type="text" name="client" placeholder="Client" id="client" /></p>
 	<p><label for="address">Address:</label></p>
-	<p><input type="text" name="address" placeholder="Address" /></p>
+	<p><input type="text" name="address" placeholder="Address" id="address"/></p>
 	<p><label for="City">City:</label></p>
-	<p><input type="text" name="city" placeholder="City" /></p>
+	<p><input type="text" name="city" placeholder="City" id="City"/></p>
 	<p><label for="state">State - (ex. MA) 2 letters only:</label></p>
-	<p><input type="text" name="state" placeholder="State" /></p>
+	<p><input type="text" name="state" placeholder="State" id="state"/></p>
 	<p><label for="zip">Zip - (ex. #####) 5 digits only:</label></p>
-	<p><input type="text" name="zip" placeholder="Zip" /></p>
+	<p><input type="text" name="zip" placeholder="Zip" id="zip" /></p>
 	<p><input class="select_button" type="submit" value="Create" /></p>
 </form>
 @stop
