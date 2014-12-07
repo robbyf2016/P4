@@ -343,22 +343,103 @@ Route::post('/create-client', array(
 
 ));
 
-Route::get('/create-service',array(
+Route::get('/read-service', array(
+    'before'=> 'auth.basic',
+    function()
+
+    {
+        /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admins can perform create services based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin', 'CSC_client', 'CSC_Employee')))
+        {
+            $services = Service::all();
+            return View::make('CSC_read_service')->with('services',$services);
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
+    }
+
+));
+
+
+Route::get('/create-service', array(
+    'before'=> 'auth.basic',
+    function()
+
+    {
+        /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admins can perform create services based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin')))
+        {
+            return View::make('CSC_create_service');
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
+    }
+
+));
+
+
+Route::post('/create-service',array(
     'before'=> 'auth.basic',
     function(){
 
-    /*$service = new Service();
+        /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admins can perform create services based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin')))
+        {
+            /*************************************************************************
+            Rules array to set specific parameters for data input validation.
+            **************************************************************************/
+            $rules = array(
+                'service_name' => 'unique:services,service_name|required',
+                'service_desc' => 'required',
+                'service_price' => 'required|numeric'
+            );
 
-    $service->service_name = 'Vulnerability Assessment';
-    $service->service_desc = 'Vulnerability assessment involves scanning the devices within 
-    a system to determine possible vulnerabilities with the additional assessment of false 
-    positives';
-    $service->service_price = '800';
+            /***********************************************************************
+            Validates data input based on rules and either enters data into table or
+            sends user back to main page with specific error conditions.
+            ************************************************************************/
 
-    $service->save();
+        $validator = Validator::make(Input::all(), $rules);
+            if ($validator->fails()){
 
-    return 'A new service was added!';*/
+                return Redirect::to('/create-service')->with('flash_message', 'Invalid input entered.  Please try again.')
+                    ->withInput()
+                    ->withErrors($validator);
 
+            }
+
+            /**********************************************************************
+            Adds new service to services table.
+            ***********************************************************************/
+
+            $service = new Service;
+            $service->service_name    = Input::get('service_name');
+            $service->service_desc    = Input::get('service_desc');
+            $service->service_price   = Input::get('service_price');
+            $service->save();
+
+            return Redirect::to('/create-service')->with('flash_message', 'Service created and added to services table');
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
 }));
 
 Route::get('/update-service',array(

@@ -48,15 +48,18 @@
               <ul class="dropdown-menu" role="menu">
                 @if(Auth::user()->is('CSC_client'))
                 <li class="dropdown-header">CSC Client Functions</li>
+                <li><a href="/read-service">Display Services</a></li>
                 <li><a href="/read-order">Read Orders</a></li>
                 @elseif(Auth::user()->is('CSC_Employee'))
                 <li class="dropdown-header">CSC Employee Functions</li>
-                <li><a href="/create-order">Create Orders</a></li>
+                <li><a href="/read-service">Display Services</a></li>
                 <li><a href="/create-client">Create Clients</a></li>
+                <li><a href="/create-order">Create Orders</a></li>
                 <li><a href="/read-order">Read Orders</a></li>
                 @else
                 <li class="dropdown-header">CSC Admin Functions</li>
-                <li><a href="#">Create Services</a></li>
+                <li><a href="/read-service">Display Services</a></li>
+                <li><a href="/create-service">Create Services</a></li>
                 <li><a href="/update-service">Modify (update/delete) Services</a></li>
                 <li><a href="/create-client">Create Clients</a></li>
                 <li><a href="/create-order">Create Orders</a></li>
