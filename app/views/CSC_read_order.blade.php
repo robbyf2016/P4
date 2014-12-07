@@ -29,7 +29,7 @@ This page is used to read orders of a specific CSC client.
 	<input type="hidden" name="_token" value="<?php echo csrf_token(); ?>">
 	<label for="client">Client:</label>
 	{{ Form::select('Client', $client_options , Input::old('Client')) }}
-	<input type="submit" value="Submit" />
+	<input class="select_button" type="submit" value="Submit" />
 </form>
 @if(isset($selection))
 </br></br>

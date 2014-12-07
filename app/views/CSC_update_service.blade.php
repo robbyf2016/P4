@@ -36,13 +36,13 @@ This page is used to update or delete a service that CSC currently offers.
 		<textarea name="service_name">{{$service_selected->service_name}}</textarea>
 	</p>
 		<label>Service Description:</label>
-		<textarea name="service_desc">{{$service_selected->service_desc}}</textarea>
+		<textarea rows="3" cols="75" name="service_desc">{{$service_selected->service_desc}}</textarea>
 	</p>
 	<p>
-		<label>Service Price:</label>
-		<textarea name="service_price">{{$service_selected->service_price}}</textarea>
+		<label>Service Price - (ex. ####):</label>
+		<input type="text" name="service_price" value="{{$service_selected->service_price}}" />
 	</p>
-	<p><input type="submit" name="button" value="Update" /><input type="submit" name="button" value="Delete" />
+	<p><input type="submit" name="button" value="Update" /><input class="delete_button" type="submit" name="button" value="Delete" />
 		<input type="submit" name="button" value="Cancel" /></p>
 </form>
 @else
@@ -51,8 +51,7 @@ This page is used to update or delete a service that CSC currently offers.
 	<input type="hidden" name="update" value="0">
 	<label for="service">Select a service to modify (update or delete):</label>
 	{{ Form::select('Service', $service_options , Input::old('Service')) }}
-	</br></br></br></br>
-	<p><input type="submit" name="select" value="Select" /></p>
+	<input class="select_button" type="submit" name="select" value="Select" />
 </form>
 @endif
 @stop

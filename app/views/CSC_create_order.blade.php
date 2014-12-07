@@ -31,7 +31,6 @@ This page is used to create an order for a CSC client.
 	{{ Form::select('Client', $client_options , Input::old('Client')) }}
 	<label for="service">Service:</label>
 	{{ Form::select('Service', $service_options , Input::old('Service')) }}
-	</br></br></br></br>
-	<p><input type="submit" value="Submit" /></p>
+	<input class="select_button" type="submit" value="Submit" />
 </form>
 @stop

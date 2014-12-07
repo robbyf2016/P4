@@ -9,6 +9,17 @@
 	font-weight:bold;
 }
 
+.delete_button{
+	background-color: red;
+	font-weight: bold;
+	margin: 10px;
+}
+
+.select_button{
+	margin-left: 15px;
+	background-color: #00EAFF;
+}
+
 .error {
 	background-color: #FF0;
 	font-size: 24px;

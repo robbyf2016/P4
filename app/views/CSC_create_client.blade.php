@@ -32,10 +32,10 @@ This page is used to create a client for CSC.
 	<p><input type="text" name="address" placeholder="Address" /></p>
 	<p><label for="City">City:</label></p>
 	<p><input type="text" name="city" placeholder="City" /></p>
-	<p><label for="state">State:</label></p>
+	<p><label for="state">State - (ex. MA) 2 letters only:</label></p>
 	<p><input type="text" name="state" placeholder="State" /></p>
-	<p><label for="zip">Zip:</label></p>
+	<p><label for="zip">Zip - (ex. #####) 5 digits only:</label></p>
 	<p><input type="text" name="zip" placeholder="Zip" /></p>
-	<p><input type="submit" value="Create" /></p>
+	<p><input class="select_button" type="submit" value="Create" /></p>
 </form>
 @stop

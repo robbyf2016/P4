@@ -302,7 +302,7 @@ Route::post('/create-client', array(
             $rules = array(
                 'client' => 'unique:clients,client_name|required',
                 'address' => 'required',
-                'city' => 'required|alpha',
+                'city' => 'required',
                 'state' => 'required|alpha|min:2|max:2',
                 'zip' => 'required|digits:5'  /* Future development use regex for zip + 4 */
             );
