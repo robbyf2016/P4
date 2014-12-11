@@ -54,7 +54,7 @@ return array(
 	|
 	*/
 
-	'from' => array('address' => null, 'name' => null),
+	'from' => array('address' => 'robbyfussell@g.harvard.edu', 'name' => 'CyberSecurity Consultants, LLC.'),
 
 	/*
 	|--------------------------------------------------------------------------
