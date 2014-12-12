@@ -33,12 +33,6 @@ Route::get('/about', function()
 }
 );
 
-Route::get('/contact', function()
-{
-    return View::make('CSC_contact');
-}
-);
-
 /*********************************************************
 Read / get call to user controller
 **********************************************************/

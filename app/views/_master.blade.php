@@ -37,7 +37,7 @@
           <ul class="nav navbar-nav">
             <li><a href="/enter">Home</a></li>
             <li><a href="/about">About</a></li>
-            <li><a href="/contact">Contact</a></li>
+            <li><a href="#">Contact</a></li>
             <!-- ************************************************************************************************
                  Check to see if username is set to verify if user is authenticated.  This is used for DRY principle.
                  Only show dropdown functions and signout on authenticated user pages. 
