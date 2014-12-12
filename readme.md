@@ -1,3 +1,35 @@
+##Project 4 - Robby Fussell
+>## Live URL
+><http://p4.robbyfussell-harvard.me>
+
+>## My class site URL
+><http://p1.robbyfussell-harvard.me>
+
+>## Description
+The purpose of this site is to demonstrate various PHP application requests to a database, implementation of routes via controllers, view blades, and other PHP and Laravel functionality. The web application enters data into the MySQL database via forms or provides an option to produce some desired output via a search form.
+
+
+## Demo Information
+>    Will be performing to do a live demo - Diana please feel free to schedule me at anytime.
+
+## Details
+   This web application is built on Laravel MVC, PHP, HTML, CSS, Toddish RBAC, and Bootstrap.
+     There are three defined roles:
+     - Admin role
+     - Employee role
+     - Client role
+   If a user signs up for a login account, they are given the default client role. Depending on the role, a user can only perform the functions identified in the role based matrix diagram. Authentication and authorization is performed on each function route to determine accessibility. Depending on the current authenticated user, the "site functions" menu will only show the functions which they can perform. If a user attempts to call a function route in the URL, the application will determine if they are authorized or not and will respond accordingly.
+
+   Under the admin role, a user is able to perform all CRUD functionality as in create services, clients, and orders; read services, clients, and orders; update clients and services; and delete services.
+
+## Outside Code
+- HTML 5 image - <http://www.pathowe.co.uk/news/HTML5.png>
+- W3C W3C CSS image - <http://jigsaw.w3.org/css-validator/images/vcss-blue>
+- Bootstrap - <http://getbootstrap.com/>
+- Toddish - <https://packagist.org/packages/toddish/verify>
+- Paste\Pre from Aaron Oxborrow - <https://packagist.org/packages/paste/pre>
+- Laravel PHP Framework - see below
+
 ## Laravel PHP Framework
 
 [![Build Status](https://travis-ci.org/laravel/framework.svg)](https://travis-ci.org/laravel/framework)
