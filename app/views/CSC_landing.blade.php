@@ -13,6 +13,11 @@ CSC, LLC.  Landing Page
 <h2>CSC Site Information Page</h2>
 @stop
 @section ('description')
+@if(Session::get('flash_message'))
+	<div class='flash-message'>{{ Session::get('flash_message') }}</div>
+@endif
+@stop
+@section ('content')
 <h3 class="sub_title">Application navigation:</h3><br />
 <p>This web application is built on Laravel MVC, PHP, HTML, CSS, Toddish RBAC, and Bootstrap.</p>
 There are three defined roles:
@@ -28,10 +33,5 @@ There are three defined roles:
 	authorized or not and will respond accordingly.</p>
 <p>Under the admin role, a user is able to perform all CRUD functionality as in create services, clients, and orders; read services and orders;
 	update services; and delete services.</p>
-@stop
-@section ('content')
-@if(Session::get('flash_message'))
-	<div class='flash-message'>{{ Session::get('flash_message') }}</div>
-@endif
 <img src="images/role_based_matrix.png" alt="RBM Image" />
 @stop
