@@ -9,6 +9,10 @@
 	font-weight:bold;
 }
 
+.sub_title {
+	background-color: #B3B3B3;
+}
+
 .delete_button{
 	background-color: red;
 	font-weight: bold;

@@ -13,7 +13,7 @@ CSC, LLC.  Landing Page
 <h2>CSC Site Information Page</h2>
 @stop
 @section ('description')
-<h3>Application navigation:</h3><br />
+<h3 class="sub_title">Application navigation:</h3><br />
 <p>This web application is built on Laravel MVC, PHP, HTML, CSS, Toddish RBAC, and Bootstrap.</p>
 There are three defined roles:
 <ul>

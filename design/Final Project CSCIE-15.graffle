@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-12-07 23:39:24 +0000</string>
+	<string>2014-12-11 21:54:39 +0000</string>
 	<key>Modifier</key>
 	<string>Robby Fussell</string>
 	<key>NotesVisible</key>
@@ -5496,36 +5496,6 @@ Final Project Database Design}</string>
 						<integer>274</integer>
 					</dict>
 					<key>ID</key>
-					<integer>277</integer>
-					<key>Points</key>
-					<array>
-						<string>{460, 368}</string>
-						<string>{322.18249061060465, 427}</string>
-					</array>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>HeadArrow</key>
-							<string>0</string>
-							<key>Legacy</key>
-							<true/>
-							<key>LineType</key>
-							<integer>1</integer>
-							<key>TailArrow</key>
-							<string>0</string>
-						</dict>
-					</dict>
-				</dict>
-				<dict>
-					<key>Class</key>
-					<string>LineGraphic</string>
-					<key>Head</key>
-					<dict>
-						<key>ID</key>
-						<integer>274</integer>
-					</dict>
-					<key>ID</key>
 					<integer>276</integer>
 					<key>Points</key>
 					<array>
@@ -6010,14 +5980,12 @@ Final Project Database Design}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -6059,14 +6027,12 @@ Final Project Database Design}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -6108,14 +6074,12 @@ Final Project Database Design}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -8361,43 +8325,6 @@ Final Project Role Based Matrix}</string>
 						<integer>274</integer>
 					</dict>
 					<key>ID</key>
-					<integer>277</integer>
-					<key>Points</key>
-					<array>
-						<string>{482.10688203858473, 126.57803430932591}</string>
-						<string>{380.96749571367098, 161.31054991739148}</string>
-					</array>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>HeadArrow</key>
-							<string>0</string>
-							<key>Legacy</key>
-							<true/>
-							<key>LineType</key>
-							<integer>1</integer>
-							<key>TailArrow</key>
-							<string>0</string>
-						</dict>
-					</dict>
-				</dict>
-				<dict>
-					<key>Class</key>
-					<string>LineGraphic</string>
-					<key>FontInfo</key>
-					<dict>
-						<key>Font</key>
-						<string>Helvetica</string>
-						<key>Size</key>
-						<real>11</real>
-					</dict>
-					<key>Head</key>
-					<dict>
-						<key>ID</key>
-						<integer>274</integer>
-					</dict>
-					<key>ID</key>
 					<integer>276</integer>
 					<key>Points</key>
 					<array>
@@ -8927,14 +8854,12 @@ Final Project Role Based Matrix}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -8976,14 +8901,12 @@ Final Project Role Based Matrix}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -9025,14 +8948,12 @@ Final Project Role Based Matrix}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>

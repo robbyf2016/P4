@@ -15,6 +15,7 @@ class BaseController extends Controller {
 		}
 	}
 
+	/*Ensure all controller function calls to post have valid CSRF token */
 	public function __construct() {
         $this->beforeFilter('csrf', array('on' => 'post'));
     }

@@ -35,7 +35,7 @@
         </div>
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
-            <li class="active"><a href="/enter">Home</a></li>
+            <li><a href="/enter">Home</a></li>
             <li><a href="#about">About</a></li>
             <li><a href="#contact">Contact</a></li>
             <!-- ************************************************************************************************
@@ -54,14 +54,16 @@
                 <li class="dropdown-header">CSC Employee Functions</li>
                 <li><a href="/read-service">Display (read) Services</a></li>
                 <li><a href="/create-client">Create Clients</a></li>
+                <li><a href="/read-client">Display (read) Clients</a></li>
                 <li><a href="/create-order">Create Orders</a></li>
                 <li><a href="/read-order">Display (read) Orders</a></li>
                 @else
                 <li class="dropdown-header">CSC Admin Functions</li>
-                <li><a href="/read-service">Display (read) Services</a></li>
                 <li><a href="/create-service">Create Services</a></li>
+                <li><a href="/read-service">Display (read) Services</a></li>
                 <li><a href="/update-service">Modify (update/delete) Services</a></li>
                 <li><a href="/create-client">Create Clients</a></li>
+                <li><a href="/read-client">Display (read) Clients</a></li>
                 <li><a href="/create-order">Create Orders</a></li>
                 <li><a href="/read-order">Display (read) Orders</a></li>
                 @endif
