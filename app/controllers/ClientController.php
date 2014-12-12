@@ -98,4 +98,89 @@ class ClientController extends BaseController {
             return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
         }
     }
+
+
+    public function getUpdateClient() {
+
+        /*****************************************************************************************
+        Authorize that the CSC Admin logged in user exists for validating that the update client
+        functionality can be performed.
+        *****************************************************************************************/
+
+        if (Auth::user()->is(array('CSC_Admin', 'CSC_Employee')))
+        {
+
+        /*****************************************************************************************
+        This section gets the input from the form post and passes back the standard services list 
+        for the user to select a service to update.  only can update existing services.
+        *****************************************************************************************/
+        $client_options = Client::lists('client_name', 'id');
+              
+        return View::make('CSC_update_client')
+            ->with('client_options',$client_options);
+
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
+    }
+
+
+    public function postUpdateClient() {
+
+        /****************************************************************************************** 
+        This tests the authenticated user's role to determine if they can access this page.  In
+        this instance, only admin and employee can perform update clients based on the role based
+        matrix 
+        ******************************************************************************************/
+        if (Auth::user()->is(array('CSC_Admin', 'CSC_Employee')))
+        {        
+
+            /**********************************************************************
+            If hidden value update is 0 do this else do other
+            ***********************************************************************/
+            if (Input::get('update') == "0"){  //Using update flag for DRY principle.  Keeps all code in one blade.
+            $client_selected = Client::find(Input::get('Client'));
+
+            return View::make('CSC_update_client')
+                ->with('client_selected',$client_selected);
+            }
+            else
+            {
+
+                # First get a client to update by using hidden inout value from previous selection from user
+                $client = Client::where('client_name', '=', Input::get('client_selected'))->first();
+
+
+                if($_POST['button'] == 'Update') {
+
+                    # If the client is located, update it
+                    if($client) {
+
+                        # Update the client
+                        $client->client_name = Input::get('client_name');
+                        $client->address = Input::get('address');
+                        $client->city = Input::get('city');
+                        $client->state = Input::get('state');
+                        $client->zip_code = Input::get('zip_code');
+                        $client->save();
+
+                        return Redirect::to('/update-client')->with('flash_message', 'Update completed');
+                    }
+                    else {
+                        return Redirect::to('/update-client')->with('flash_message', 'Client not found, cannot update.');
+                    }
+                }
+                else{
+                    return Redirect::to('/update-client');
+                }
+            }
+        }
+        else
+        {
+            return Redirect::to('/enter')->with('flash_message', 'User Role is not permitted to access this page');
+        }
+    }
+
 }

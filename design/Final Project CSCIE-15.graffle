@@ -26,7 +26,7 @@
 	<key>MasterSheets</key>
 	<array/>
 	<key>ModificationDate</key>
-	<string>2014-12-11 21:54:39 +0000</string>
+	<string>2014-12-12 17:29:04 +0000</string>
 	<key>Modifier</key>
 	<string>Robby Fussell</string>
 	<key>NotesVisible</key>
@@ -5466,36 +5466,6 @@ Final Project Database Design}</string>
 						<integer>274</integer>
 					</dict>
 					<key>ID</key>
-					<integer>278</integer>
-					<key>Points</key>
-					<array>
-						<string>{502, 367}</string>
-						<string>{326.32650210422327, 427}</string>
-					</array>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>HeadArrow</key>
-							<string>0</string>
-							<key>Legacy</key>
-							<true/>
-							<key>LineType</key>
-							<integer>1</integer>
-							<key>TailArrow</key>
-							<string>0</string>
-						</dict>
-					</dict>
-				</dict>
-				<dict>
-					<key>Class</key>
-					<string>LineGraphic</string>
-					<key>Head</key>
-					<dict>
-						<key>ID</key>
-						<integer>274</integer>
-					</dict>
-					<key>ID</key>
 					<integer>276</integer>
 					<key>Points</key>
 					<array>
@@ -7400,14 +7370,12 @@ Service}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -7449,14 +7417,12 @@ Service}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -7498,14 +7464,12 @@ Service}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -8272,43 +8236,6 @@ Final Project Role Based Matrix}</string>
 			<string>1 0/72 in = 1.0000 in</string>
 			<key>GraphicsList</key>
 			<array>
-				<dict>
-					<key>Class</key>
-					<string>LineGraphic</string>
-					<key>FontInfo</key>
-					<dict>
-						<key>Font</key>
-						<string>Helvetica</string>
-						<key>Size</key>
-						<real>11</real>
-					</dict>
-					<key>Head</key>
-					<dict>
-						<key>ID</key>
-						<integer>274</integer>
-					</dict>
-					<key>ID</key>
-					<integer>278</integer>
-					<key>Points</key>
-					<array>
-						<string>{517.21824880812164, 125.69576883613297}</string>
-						<string>{385.17850241635676, 161.31054991739148}</string>
-					</array>
-					<key>Style</key>
-					<dict>
-						<key>stroke</key>
-						<dict>
-							<key>HeadArrow</key>
-							<string>0</string>
-							<key>Legacy</key>
-							<true/>
-							<key>LineType</key>
-							<integer>1</integer>
-							<key>TailArrow</key>
-							<string>0</string>
-						</dict>
-					</dict>
-				</dict>
 				<dict>
 					<key>Class</key>
 					<string>LineGraphic</string>
@@ -10274,14 +10201,12 @@ Service}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -10323,14 +10248,12 @@ Service}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -10372,14 +10295,12 @@ Service}</string>
 							<key>Color</key>
 							<dict>
 								<key>b</key>
-								<string>0.6</string>
+								<string>0.811765</string>
 								<key>g</key>
-								<string>0.6</string>
+								<string>0.435294</string>
 								<key>r</key>
-								<string>0.6</string>
+								<string>1</string>
 							</dict>
-							<key>Draws</key>
-							<string>NO</string>
 						</dict>
 						<key>shadow</key>
 						<dict>
@@ -11057,11 +10978,11 @@ Order}</string>
 	<key>WindowInfo</key>
 	<dict>
 		<key>CurrentSheet</key>
-		<integer>4</integer>
+		<integer>3</integer>
 		<key>ExpandedCanvases</key>
 		<array/>
 		<key>Frame</key>
-		<string>{{335, 71}, {1591, 986}}</string>
+		<string>{{332, 71}, {1591, 986}}</string>
 		<key>ListView</key>
 		<true/>
 		<key>OutlineWidth</key>

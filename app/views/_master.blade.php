@@ -36,8 +36,8 @@
         <div id="navbar" class="collapse navbar-collapse">
           <ul class="nav navbar-nav">
             <li><a href="/enter">Home</a></li>
-            <li><a href="#about">About</a></li>
-            <li><a href="#contact">Contact</a></li>
+            <li><a href="/about">About</a></li>
+            <li><a href="/contact">Contact</a></li>
             <!-- ************************************************************************************************
                  Check to see if username is set to verify if user is authenticated.  This is used for DRY principle.
                  Only show dropdown functions and signout on authenticated user pages. 
@@ -55,6 +55,7 @@
                 <li><a href="/read-service">Display (read) Services</a></li>
                 <li><a href="/create-client">Create Clients</a></li>
                 <li><a href="/read-client">Display (read) Clients</a></li>
+                <li><a href="/update-client">Modify (update) Clients</a></li>
                 <li><a href="/create-order">Create Orders</a></li>
                 <li><a href="/read-order">Display (read) Orders</a></li>
                 @else
@@ -64,6 +65,7 @@
                 <li><a href="/update-service">Modify (update/delete) Services</a></li>
                 <li><a href="/create-client">Create Clients</a></li>
                 <li><a href="/read-client">Display (read) Clients</a></li>
+                <li><a href="/update-client">Modify (update) Clients</a></li>
                 <li><a href="/create-order">Create Orders</a></li>
                 <li><a href="/read-order">Display (read) Orders</a></li>
                 @endif

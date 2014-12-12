@@ -26,6 +26,19 @@ Route::get('/enter', array(
     return View::make('CSC_landing');
 }
 ));
+
+Route::get('/about', function()
+{
+    return View::make('CSC_about');
+}
+);
+
+Route::get('/contact', function()
+{
+    return View::make('CSC_contact');
+}
+);
+
 /*********************************************************
 Read / get call to user controller
 **********************************************************/
@@ -86,6 +99,20 @@ Create client post call to client controller
 Route::post('/create-client', array(
     'before'=> 'auth.basic',
     'uses' => 'ClientController@postCreateClient')
+);
+/*********************************************************
+Update client get call to client controller
+**********************************************************/
+Route::get('/update-client', array(
+    'before'=> 'auth.basic',
+    'uses' => 'ClientController@getUpdateClient')
+);
+/*********************************************************
+Create client post call to client controller
+**********************************************************/
+Route::post('/update-client', array(
+    'before'=> 'auth.basic',
+    'uses' => 'ClientController@postUpdateClient')
 );
 /*********************************************************
 Read service get call to service controller
