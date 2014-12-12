@@ -46,9 +46,6 @@ Route::get('mysql-test', function() {
     Application Final Project Routes
 ********************************************************/
 
-/*********************************************************
-Log into application route
-**********************************************************/
 Route::get('/enter', array(
 	'before'=> 'auth.basic',
 	function()
@@ -170,7 +167,7 @@ Route::get('/logout',
 /*---------------------------------------------------------
     Debug
 ----------------------------------------------------------*/
-
+/*
 Route::get('/debug', function() {
 
     echo '<pre>';
@@ -214,4 +211,4 @@ Route::get('/debug', function() {
 
     echo '</pre>';
 
-});
+});*/
