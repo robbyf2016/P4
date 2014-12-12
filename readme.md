@@ -14,10 +14,10 @@ The purpose of this site is to demonstrate various PHP application requests to a
 
 ## Details
    This web application is built on Laravel MVC, PHP, HTML, CSS, Toddish RBAC, and Bootstrap.
-     There are three defined roles:
-     - Admin role
-     - Employee role
-     - Client role
+   There are three defined roles:
+- Admin role
+- Employee role
+- Client role
    If a user signs up for a login account, they are given the default client role. Depending on the role, a user can only perform the functions identified in the role based matrix diagram. Authentication and authorization is performed on each function route to determine accessibility. Depending on the current authenticated user, the "site functions" menu will only show the functions which they can perform. If a user attempts to call a function route in the URL, the application will determine if they are authorized or not and will respond accordingly.
 
    Under the admin role, a user is able to perform all CRUD functionality as in create services, clients, and orders; read services, clients, and orders; update clients and services; and delete services.
