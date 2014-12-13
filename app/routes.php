@@ -27,11 +27,13 @@ Route::get('/enter', array(
 }
 ));
 
-Route::get('/about', function()
+Route::get('/about', array(
+    'before'=> 'auth.basic',
+    function()
 {
     return View::make('CSC_about');
 }
-);
+));
 
 /*********************************************************
 Read / get call to user controller
