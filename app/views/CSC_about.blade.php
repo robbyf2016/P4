@@ -22,14 +22,17 @@ CSC, LLC.  About Page
 <p>This web application is built on Laravel MVC, PHP, HTML, CSS, Toddish RBAC, and Bootstrap.</p>
 The following have been incorporated into this application among others not identified:
 <ul>
-	<li>Routes - using Controllers</li>
-	<li>Models - Client, Service, User, and Order</li>
+	<li>Routes - using Controllers with explicit routing.</li>
+	<li>Models - Client, Service, User, and Order.</li>
 	<li>Migrations - used to construct the database tables and to populate a few tables.</li>
 	<li>Seeds - used to populate the database tables with initial data.</li>
 	<li>Views - used to generate the HTML views for input and output to the end user.</li>
+	<li>Validation - utilized rules and validator to perform input validation from end users.</li>
+	<li>DRY Principle - where possible, the implementation of "Do not Repeat Yourself" coding methodolgy was utilized.</li>
 	<li>Authentication and Authorization - provided by Toddish and implemented within the code.</li>
 	<li>Bootstrap - used for visual and graphical display.</li>
 	<li>MySQL database - the database contains four tables specifically for the application.  Three normal tables and one pivot table.</li>
+	<li>HTML/CSS W3C Standards - all pages were checked for HTML5 and CSS compliance against W3C.</li>
 </ul>
 <p>This is a basic business application that is used to maintain clients that will order security services from CSC.</p>
 <ul>
