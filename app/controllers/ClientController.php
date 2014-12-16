@@ -155,6 +155,31 @@ class ClientController extends BaseController {
 
                 if($_POST['button'] == 'Update') {
 
+                    /*************************************************************************
+                    Rules array to set specific parameters for data input validation.
+                    **************************************************************************/
+                    $rules = array(
+                        'client_name' => 'required',
+                        'address' => 'required',
+                        'city' => 'required',
+                        'state' => 'required|alpha|min:2|max:2',
+                        'zip_code' => 'required|digits:5'  /* Future development use regex for zip + 4 */
+                    );
+
+                    /***********************************************************************
+                    Validates data input based on rules and either enters data into table or
+                    sends user back to main page with specific error conditions.
+                    ************************************************************************/
+
+                    $validator = Validator::make(Input::all(), $rules);
+                        if ($validator->fails()){
+
+                            return Redirect::to('/update-client')->with('flash_message', 'Invalid input entered.  Please try again.')
+                                ->withInput()
+                                ->withErrors($validator);
+
+                        }
+
                     # If the client is located, update it
                     if($client) {
 

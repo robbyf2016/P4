@@ -153,6 +153,29 @@ class ServiceController extends BaseController {
                     # If the service is located, update it
                     if($service) {
 
+                        /*************************************************************************
+                        Rules array to set specific parameters for data input validation.
+                        **************************************************************************/
+                        $rules = array(
+                            'service_name' => 'unique:services,service_name|required',
+                            'service_desc' => 'required',
+                            'service_price' => 'required|numeric'
+                        );
+
+                        /***********************************************************************
+                        Validates data input based on rules and either enters data into table or
+                        sends user back to main page with specific error conditions.
+                        ************************************************************************/
+
+                        $validator = Validator::make(Input::all(), $rules);
+                            if ($validator->fails()){
+
+                            return Redirect::to('/update-service')->with('flash_message', 'Invalid input entered.  Please try again.')
+                                ->withInput()
+                                ->withErrors($validator);
+
+                        }
+
                         # Update the service
                         $service->service_name = Input::get('service_name');
                         $service->service_desc = Input::get('service_desc');
