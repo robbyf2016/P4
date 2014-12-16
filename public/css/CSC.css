@@ -53,23 +53,27 @@
 
 /*  Background color for all the EVEN background rows  */
 .outtable tr:nth-child(even){ 
-		background:#999999;
+		background:white;
 	}
 
 /*  Background color for all the ODD background rows  */
 .outtable tr:nth-child(odd){
-		background:white;
+		background:#CCCCCC;
 	}
 
 th{
-	background-color: #FFD2FA;
+	background-color: #003CFF;
 	text-align: center;
+	color: white;
+	font-family: "Trebuchet MS", Arial, Helvetica, sans-serif;
+	border:1px solid black;
 	
 }
 
 td{
 	font-family: sans-serif;
 	padding: 15px;
+	border:1px solid black;
 }
 
 table{
