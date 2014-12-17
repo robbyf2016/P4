@@ -33,6 +33,8 @@ The following have been incorporated into this application among others not iden
 	<li>Bootstrap - used for visual and graphical display.</li>
 	<li>MySQL database - the database contains four tables specifically for the application.  Three normal tables and one pivot table.</li>
 	<li>HTML/CSS W3C Standards - all pages were checked for HTML5 and CSS compliance against W3C.</li>
+	<li>Try/Catch - certain areas but not all included try catch statements in order to control error processing.</li>
+	<li>Consistent Coding Standards - attempted to utilize extensive commenting and naming conventions of parameters and methods.</li>
 </ul>
 <p>This is a basic business application that is used to maintain clients that will order security services from CSC.</p>
 <ul>
